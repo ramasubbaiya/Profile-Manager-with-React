@@ -1,4 +1,4 @@
-let url = './data/profiles.json';
+let url = 'data/profiles.json';
 let profiles = [];
 
 fetch(url).then(function(response) {

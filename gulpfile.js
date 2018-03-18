@@ -21,7 +21,7 @@ gulp.task('serve', ['sass'], function() {
     gulp.watch(['/src/*.html'], ['html']).on('change', browserSync.reload);
 });
 
-// TODO : Minify, Uglify
+// TODO : Minify or Uglify
 
 // Default 
 gulp.task('default', ['serve']);

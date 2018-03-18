@@ -1,51 +1,89 @@
 @import 'variables';
 @import 'functions';
+$body-bg: #FFF;
 $main-font: 'Open Sans',
 sans-serif;
-$dark-theme-color: #212121;
-$dark-theme-color: #F5F5F5;
-html {
-    height: 100%;
-    font: caption;
+$dark-theme-primary-color: #1b1511;
+$dark-theme-primary-font-color: #1b1511;
+$dark-theme-seconday-color: #53453b;
+$dark-theme-seconday-font-color: #53453b;
+$light-theme-primary-color: rgb(188, 230, 238);
+$light-theme-primary-font-color: rgb(188, 230, 238);
+$light-theme-seconday-color: rgba(188, 230, 238, 0.616);
+$light-theme-seconday-font-color: rgba(188, 230, 238, 0.616);
+$container:960px;
+// Functions
+@function set-text-color($bg-color) {
+    @if(lightness($bg-color) < 50) {
+        @return #ffffff;
+    }
+    @else {
+        @return #000000;
+    }
 }
 
-html,
-body {
-    width: 100%;
-    min-width: 100%;
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
 }
 
 body {
-    min-height: auto;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    background-color: $body-bg;
+    font-family: $main-font;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    // font color based on the theme
+}
+
+.container {
+    max-width: $container;
+    margin: auto;
+    padding: 0 20px;
 }
 
 header {
-    background-color: black;
-    padding: 20px 0px;
-    color: white;
+    padding: 1em;
+    background: $dark-theme-primary-color;
+    color: set-text-color($dark-theme-primary-color);
+    .fa-users {
+        font-size: 50px;
+        float: left;
+        padding-left: 10px;
+    }
 }
 
-.fa-users {
-    font-size: 50px;
-    float: left;
-    padding-left: 10px;
+nav#main-nav {
+    background: $dark-theme-seconday-color;
+    height: 40px;
+    ul {
+        list-style: none;
+        padding-top: 10px;
+    }
+    li {
+        display: inline;
+    }
+    a {
+        color: set-text-color($dark-theme-primary-color);
+        padding-right: 20px;
+        &:hover {
+            color: set-text-color($dark-theme-secondary-color);
+        }
+    }
 }
 
-.head-text {
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    /* align horizontal */
-    align-items: center;
-}
-
+// .head-text {
+//     font-size: 30px;
+//     display: flex;
+//     justify-content: center;
+//     /* align horizontal */
+//     align-items: center;
+// }
 footer {
-    background-color: black;
-    color: white;
+    background: $dark-theme-primary-color;
+    color: set-text-color($dark-theme-primary-color);
     position: fixed;
     bottom: 0px;
     left: 0px;
@@ -54,8 +92,8 @@ footer {
     margin-bottom: 0px;
 }
 
-.container {
-    display: inline;
+.profile-list {
+    text-decoration: none;
 }
 
 .fa-heart {

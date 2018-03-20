@@ -18,29 +18,46 @@ a {
 header {
   padding: 1em;
   background: #1b1511;
-  color: #ffffff; }
+  color: #987660; }
   header .fa-users {
     font-size: 50px;
     float: left;
     padding-left: 10px; }
 
-nav#main-nav {
+nav.main-nav ul {
+  list-style: none;
+  padding-top: 10px; }
+
+nav.main-nav li {
+  display: inline-block; }
+
+nav.main-nav {
   background: #53453b;
   height: 40px; }
-  nav#main-nav ul {
-    list-style: none;
-    padding-top: 10px; }
-  nav#main-nav li {
-    display: inline; }
-  nav#main-nav a {
-    color: #ffffff;
+  nav.main-nav a {
+    color: #987660;
     padding-right: 20px; }
-    nav#main-nav a:hover {
-      color: #ffffff; }
+    nav.main-nav a:hover {
+      color: #bbab9f; }
+
+ul {
+  list-style: none; }
+
+li.profile-heading {
+  display: inline-flex;
+  font-size: 1.5em; }
+  li.profile-heading div {
+    background: #1b1511;
+    color: #987660;
+    padding: 10px; }
+
+.profile-data div {
+  display: inline-flex;
+  border: solid #1b1511; }
 
 footer {
   background: #1b1511;
-  color: #ffffff;
+  color: #987660;
   position: fixed;
   bottom: 0px;
   left: 0px;

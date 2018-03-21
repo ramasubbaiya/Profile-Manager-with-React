@@ -1,7 +1,6 @@
 let url = 'data/profiles.json';
 let profiles = [];
-const profilesHeading = ['Name', 'Age', 'Email', 'Children'];
-let profileListElem = document.getElementsByClassName('profile-list');
+const profilesTitle = ['Name', 'Age', 'Email', 'Children'];
 
 // utility methods
 // create div with class name as parameter
@@ -27,27 +26,28 @@ let createDivWithText = function(text) {
 
 // create profile heading with columns
 let profileListHeadingElem = function() {
-    let pHeadElem = document.createElement('li');
-    pHeadElem.classList.add('profile-heading');
-    pHeadElem.appendChild(createDivWithClassAndText('profile-name', profilesHeading[0]));
-    pHeadElem.appendChild(createDivWithClassAndText('profile-age', profilesHeading[1]));
-    pHeadElem.appendChild(createDivWithClassAndText('profile-email', profilesHeading[2]));
-    pHeadElem.appendChild(createDivWithClassAndText('profile-children', profilesHeading[3]));
+    let pHeadElem = createDivWithClass('profile-title');
+    pHeadElem.appendChild(createDivWithText(profilesTitle[0]));
+    pHeadElem.appendChild(createDivWithText(profilesTitle[1]));
+    pHeadElem.appendChild(createDivWithText(profilesTitle[2]));
+    pHeadElem.appendChild(createDivWithText(profilesTitle[3]));
     return pHeadElem;
 }
 
 // display profiles on first load
 let displayProfiles = function(profiles) {
-    let listElem = document.createElement('ul');
+    let listElem = document.getElementsByClassName('profile-list')[0];
 
-    // if profiles is more than one, creaete heading for it
+    // if profiles is more than one, create heading for it
     if (profiles) {
         listElem.appendChild(profileListHeadingElem());
 
+        let profileData = createDivWithClass('profile-data');
+        listElem.appendChild(profileData);
+
         // create list of profile values
         for (let i = 0; i < profiles.length; i++) {
-            let profileElem = document.createElement('li');
-            profileElem.classList.add('profile-data');
+            let profileElem = createDivWithClass('profile');
             for (let key in profiles[i]) {
                 if (key !== 'children') {
                     profileElem.appendChild(createDivWithText(profiles[i][key]));
@@ -55,11 +55,11 @@ let displayProfiles = function(profiles) {
                     profileElem.appendChild(createDivWithText('Coming soon.'));
                 }
             }
-            listElem.appendChild(profileElem);
+            profileData.appendChild(profileElem);
         }
+        listElem.appendChild(profileData);
     }
 
-    profileListElem[0].appendChild(listElem);
 }
 
 // add a profile to existing list

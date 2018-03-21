@@ -24,29 +24,24 @@ header {
     float: left;
     padding-left: 10px; }
 
-nav.main-nav ul {
-  list-style: none;
-  padding-top: 10px; }
-
-nav.main-nav li {
-  display: inline-block; }
-
 nav.main-nav {
   background: #53453b;
   height: 40px; }
+  nav.main-nav ul {
+    list-style: none;
+    padding-top: 10px; }
+  nav.main-nav li {
+    display: inline-block; }
   nav.main-nav a {
     color: #987660;
     padding-right: 20px; }
     nav.main-nav a:hover {
       color: #bbab9f; }
 
-ul {
-  list-style: none; }
-
-li.profile-heading {
+.profile-title {
   display: inline-flex;
   font-size: 1.5em; }
-  li.profile-heading div {
+  .profile-title div {
     background: #1b1511;
     color: #987660;
     padding: 10px; }

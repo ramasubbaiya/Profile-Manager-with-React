@@ -33,7 +33,9 @@ header {
     }
 }
 
-%ul-li {
+nav.main-nav {
+    background: $dark-theme-secondary-color;
+    height: 40px;
     ul {
         list-style: none;
         padding-top: 10px;
@@ -41,12 +43,6 @@ header {
     li {
         display: inline-block;
     }
-}
-
-nav.main-nav {
-    background: $dark-theme-secondary-color;
-    height: 40px;
-    @extend %ul-li;
     a {
         color: set-text-color($dark-theme-primary-color);
         padding-right: 20px;
@@ -56,11 +52,7 @@ nav.main-nav {
     }
 }
 
-ul {
-    list-style: none;
-}
-
-li.profile-heading {
+.profile-title {
     display: inline-flex;
     font-size: 1.5em;
     div {

@@ -46,9 +46,10 @@ nav.main-nav {
     color: #987660;
     padding: 10px; }
 
-.profile-data div {
-  display: inline-flex;
-  border: solid #1b1511; }
+.profile-data > div {
+  display: table-cell;
+  border: solid #1b1511;
+  }
 
 footer {
   background: #1b1511;
@@ -61,7 +62,9 @@ footer {
   margin-bottom: 0px; }
 
 .profile-list {
-  text-decoration: none; }
+  text-decoration: none;
+  display: table;
+  }
 
 .fa-heart {
   color: #e25555; }

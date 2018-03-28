@@ -52,20 +52,30 @@ nav.main-nav {
     }
 }
 
+.profile-list {
+    display: table;
+}
+
 .profile-title {
-    display: inline-flex;
     font-size: 1.5em;
+    display: table-header-group;
     div {
         background: $dark-theme-primary-color;
         color: set-text-color($dark-theme-primary-color);
         padding: 10px;
+        display: table-cell;
     }
 }
 
 .profile-data {
+    display: table-row-group;
+}
+
+.profile {
+    display: table-row;
     div {
-        display: inline-flex;
-        border: solid $dark-theme-primary-color;
+        border: solid $dark-theme-secondary-color;
+        display: table-cell;
     }
 }
 
@@ -78,10 +88,6 @@ footer {
     right: 0px;
     height: 60px;
     margin-bottom: 0px;
-}
-
-.profile-list {
-    text-decoration: none;
 }
 
 .fa-heart {

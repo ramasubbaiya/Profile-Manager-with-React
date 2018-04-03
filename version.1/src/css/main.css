@@ -11,9 +11,10 @@ a {
   text-decoration: none; }
 
 .container {
-  max-width: 960px;
-  margin: auto;
-  padding: 0 20px; }
+  /* max-width: 960px; */
+  margin: auto 0px;
+  padding: 0 20px;
+  }
 
 header {
   padding: 1em;
@@ -38,18 +39,26 @@ nav.main-nav {
     nav.main-nav a:hover {
       color: #bbab9f; }
 
+.profile-list {
+  display: table; }
+
 .profile-title {
-  display: inline-flex;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  display: table-header-group; }
   .profile-title div {
     background: #1b1511;
     color: #987660;
-    padding: 10px; }
+    padding: 10px;
+    display: table-cell; }
 
-.profile-data > div {
-  display: table-cell;
-  border: solid #1b1511;
-  }
+.profile-data {
+  display: table-row-group; }
+
+.profile {
+  display: table-row; }
+  .profile div {
+    border: solid #53453b;
+    display: table-cell; }
 
 footer {
   background: #1b1511;
@@ -60,11 +69,6 @@ footer {
   right: 0px;
   height: 60px;
   margin-bottom: 0px; }
-
-.profile-list {
-  text-decoration: none;
-  display: table;
-  }
 
 .fa-heart {
   color: #e25555; }

@@ -17,12 +17,18 @@ a {
 }
 
 section {
-
+    border-radius: 1em;
+    padding: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
+
 .container {
     max-width: $container;
     margin: auto;
-    padding: 0 20px;
 }
 
 header {
@@ -37,6 +43,7 @@ header {
 }
 
 nav.main-nav {
+    /**display: none;*/
     background: $dark-theme-secondary-color;
     height: 40px;
     ul {
@@ -85,7 +92,7 @@ nav.main-nav {
 footer {
     background: $dark-theme-primary-color;
     color: set-text-color($dark-theme-primary-color);
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     left: 0px;
     right: 0px;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+import Todos from './components/Todos';
 import Projects from './components/Projects';
 import AddProject from './components/AddProject';
 import './App.css';
@@ -8,12 +9,41 @@ class App extends Component {
 constructor() {
   super();
   this.state = {
-    projects: []
+    projects: [],
+    todos: [],
+    error: null,
+    isLoaded: false,
   }
 }
 
-componentWillMount() {
-  this.setState({projects: [
+fetchTodos() {
+  fetch("https://jsonplaceholder.typicode.com/todos")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            todos: result
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+}
+
+getTodos() {
+  this.setState({ todos: this.fetchTodos()});
+}
+
+getProjects() {
+  this.setState({ projects: [
     {
       id: uuid.v4(),
       title: 'Business Website',
@@ -32,6 +62,15 @@ componentWillMount() {
   ]});
 }
 
+componentWillMount() {
+  this.getProjects();
+  this.getTodos();
+}
+
+componentDidMount() {
+  this.getTodos();
+}
+
 handleAddProject(project) {
   let projects = this.state.projects;
   projects.push(project);
@@ -48,10 +87,13 @@ handleDeleteProject(id) {
 }
 
   render() {
+
     return (
       <div className="App">
         <AddProject addProject={this.handleAddProject.bind(this)} />
         <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />
+        <hr />
+        <Todos todos={this.state.todos} />
       </div>
     );
   }
